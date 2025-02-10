@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: apex_dataset
+    database: apexgcp  # Matches your GCP project ID
+    schema: apex_dataset  # BigQuery dataset name
+    tables:
+      - name: customer_data_table
+        description: "Raw customer data from source system"
+        
+      - name: transactions_table
+        description: "Transactional records"
+        
+      - name: product_data_table
+        description: "Product catalog information"
+        
+      - name: region_data_table
+        description: "Geographical regions reference"

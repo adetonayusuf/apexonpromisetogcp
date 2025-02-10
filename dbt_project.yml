@@ -1,0 +1,31 @@
+# dbt_project.yml
+name: apexgcp
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: apexgcp
+
+# Define directories where dbt should look for files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Directories to be removed by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuring models by folder (overrides can also be set in each model file)
+models:
+  apexgcp:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts_core:
+      +schema: marts_core
+      +materialized: table
+
+
