@@ -1,6 +1,5 @@
 # apexonpromisetogcp
 
-**Strategic Data Migration and Advanced Analytics:**  
 **Transforming On-Premises Infrastructure with Google Cloud Platform for Scalable, Data-Driven Insights**  
 
 ### **Introduction**  
@@ -107,12 +106,15 @@ Below is the Terraform script to provision all required GCP resources, including
 
 ### **4. Checked the integrity of the data loaded into BigQuery**
   I ran the queries below to confirm if the tables have been loaded correctly
-    - The query below check for missing rows
+  
+  - The query below check for missing rows
+
       SELECT * 
       FROM `apexgcp.apex_dataset.transactions`
       WHERE Customer_ID IS NULL OR Transaction_ID IS NULL;
 
-    - The query below is to indentify if there's any duplicate in the transactions table
+  - The query below is to indentify if there's any duplicate in the transactions table
+    
       SELECT Transaction_ID, COUNT(*) 
       FROM `apexgcp.apex_dataset.transactions`
       GROUP BY Transaction_ID
