@@ -99,13 +99,13 @@ Below is the Terraform script to provision all required GCP resources, including
 
   ![Main.tf](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/main.tf)
 
-- **Loading CSV files into Google Cloud Storage (GCS)**
+### **2. Loading CSV files into Google Cloud Storage (GCS)**
   ![csv_bucket.py](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/csv_bucket.py)
   
-- **Loading PostgreSQL data into BigQuery**
+### **3. Loading PostgreSQL data into BigQuery**
   ![postgres-bucket-bq.py](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/postgres-bucket-bq.py)
 
-- **Checked the integrity of the data loaded into BigQuery**
+### **4. Checked the integrity of the data loaded into BigQuery**
   I ran the queries below to confirm if the tables have been loaded correctly
     - The query below check for missing rows
       SELECT * 
@@ -120,7 +120,7 @@ Below is the Terraform script to provision all required GCP resources, including
 
   
   
-- **Transforming data using dbt (data build tool)**
+### **5. Transforming data using dbt (data build tool)**
   Transforming the raw data in BigQuery to analytics-ready datasets with the help of dbt. After setting up dbt for the project, docker scripts were generated.
     ![dbt_project.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/dbt_project.yml)
     ![schema.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/schema.yml)
@@ -135,7 +135,9 @@ Below is the Terraform script to provision all required GCP resources, including
   Then a created core_mart folder that house the transformed dataset that will be use for analysis
     ![core_transaction_analysis.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/core_transaction_analysis.sql)
  
-- **Ensuring data integrity and implementing security measures**
+### **6. Use Composer & Airflow to Automate the transformed data**
+
+- - **Ensuring data integrity and implementing security measures**
 
 ---  
 ### **Conclusion**  
