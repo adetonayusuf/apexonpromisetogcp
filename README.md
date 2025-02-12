@@ -96,13 +96,20 @@ Apex Solutions migrated to Google Cloud Platform to address these challenges and
 #### **1. Provisioning GCP Resources with Terraform**  
 Below is the Terraform script to provision all required GCP resources, including Compute Engine, Cloud Storage, BigQuery, IAM roles, and networking components:  
 
+
   ![Main.tf](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/main.tf)
 
+
 ### **2. Loading CSV files into Google Cloud Storage (GCS)**
+
+
   ![csv_bucket.py](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/csv_bucket.py)
   
 ### **3. Loading PostgreSQL data into BigQuery**
+
+
   ![postgres-bucket-bq.py](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/postgres-bucket-bq.py)
+  
 
 ### **4. Checked the integrity of the data loaded into BigQuery**
   I ran the queries below to confirm if the tables have been loaded correctly
@@ -124,20 +131,35 @@ Below is the Terraform script to provision all required GCP resources, including
   
 ### **5. Transforming data using dbt (data build tool)**
   Transforming the raw data in BigQuery to analytics-ready datasets with the help of dbt. After setting up dbt for the project, docker scripts were generated.
-    ![dbt_project.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/dbt_project.yml)
-    ![schema.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/schema.yml)
-    ![sources.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/sources.yml)
+  
+   ![dbt_project.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/dbt_project.yml)
+    
+   ![schema.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/schema.yml)
+    
+   ![sources.yml](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/sources.yml)
 
   Then i created staging folders were all the SQL queries that will be used to reform my tables that will be eventually used to create a new transformed transaction tables   that will be used for analysis.
-    ![stg_customers.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_customers.sql)
-    ![stg_products.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_products.sql)
-    ![stg_regions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_regions.sql)
-    ![stg_transactions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_transactions.sql)
+  
+   ![stg_customers.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_customers.sql)
+    
+   ![stg_products.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_products.sql)
+    
+   ![stg_regions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_regions.sql)
+    
+   ![stg_transactions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_transactions.sql)
 
   Then a created core_mart folder that house the transformed dataset that will be use for analysis
     ![core_transaction_analysis.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/core_transaction_analysis.sql)
  
 ### **6. Use Composer & Airflow to Automate the transformed data**
+
+
+
+### **6. Google Looker - GCP Transaction Analysis**
+
+
+![GCP Transactions Analysis](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/GCP%20Transaction%20Analysis.png)
+
 
 - - **Ensuring data integrity and implementing security measures**
 
