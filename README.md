@@ -151,8 +151,9 @@ Below is the Terraform script to provision all required GCP resources, including
   Then a created core_mart folder that house the transformed dataset that will be use for analysis
     ![core_transaction_analysis.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/core_transaction_analysis.sql)
  
-### **6. Use Composer & Airflow to Automate the transformed data**
-
+### **6. Use Cloud Composer (Airflow) to Automate Pipeline**
+  I created the Cloud Composer (Airflow) in GCP to automate the data pipeline, after creating the Cloud Composer environment (which set up a DAGs folder in Cloud Storage     and BigQuery). After created dag in the environment and I used cloud shell to upload the DAG to the bucket. I confirmed the DAG in the Airflow UI and confirm that the   
+   DAG flows into the BigQuery
 
 
 ### **6. Google Looker - GCP Transaction Analysis**
