@@ -94,11 +94,17 @@ Apex Solutions migrated to Google Cloud Platform to address these challenges and
 
 ### **Stack
 Cloud Platform: Google Cloud Platform (BigQuery, Cloud Storage, Dataflow, AI Platform)
+
 Infrastructure as Code Tools: Terraform for managing and provisioning cloud infrastructure
+
 Data Integration Tools: Cloud Data Fusion
+
 Analytics Tools: Looker, BigQuery
+
 Data Transformation Tools: dbt (data build tool) for modular and reusable data models
+
 Security Solutions: Cloud Identity and Access Management(IAM)
+
 Programming Languages: Python, SQL
 
 ---
