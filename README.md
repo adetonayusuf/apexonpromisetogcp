@@ -92,7 +92,7 @@ Apex Solutions migrated to Google Cloud Platform to address these challenges and
 
 ---  
 
-### **Stack
+### **Stack**
 Cloud Platform: Google Cloud Platform (BigQuery, Cloud Storage, Dataflow, AI Platform)
 
 Infrastructure as Code Tools: Terraform for managing and provisioning cloud infrastructure
@@ -108,6 +108,10 @@ Security Solutions: Cloud Identity and Access Management(IAM)
 Programming Languages: Python, SQL
 
 ---
+### **Data Source** 
+
+The source data for this project is csv and dump files. I uploaded the source file into Postgres which we will later import into Google Cloud Storage and BigQuery
+--
 ### **Implementation Strategy & Terraform Code**  
 
 #### **1. Provisioning GCP Resources with Terraform**  
