@@ -177,12 +177,33 @@ Below is the Terraform script to provision all required GCP resources, including
    DAG flows into the BigQuery
 
 
-### **6. Google Looker - GCP Transaction Analysis**
+### **7. Google Looker - GCP Transaction Analysis**
+
 
 
 ![GCP Transactions Analysis](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/GCP%20Transaction%20Analysis.png)
 
 
+ ### **7. Power BI - GCP Transaction Analysis**
+
+ I also created a power BI dashboard with data imported from BigQuery, I created interesting insights to analyse and table that shows the summary of key KPI like Gross Revenue, Discount, Net Revenue, Cost of Goods Sold and Gross Profit. I created bookmark for each item that drilldown and further analyse key items like trends, locations etc
+ 
+
+![Gross Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Revenue.png)
+
+
+![Discount.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Discount.png)
+
+
+![Net Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Net%20Revenue.png)
+
+
+![COGS.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/COGS.png)
+
+
+![Gross Profit.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Profit.png)
+
+ 
 - - **Ensuring data integrity and implementing security measures**
 
 ---  
