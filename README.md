@@ -123,21 +123,40 @@ The source data for this project includes CSV and dump files. The data was initi
 
 #### **4. Data Integrity Checks in BigQuery**
 - Queries to check missing or duplicate records.
+    - The query below check for missing rows
+
+       SELECT * 
+       FROM `apexgcp.apex_dataset.transactions`
+      WHERE Customer_ID IS NULL OR Transaction_ID IS NULL;
+
+  - The query below is to indentify if there's any duplicate in the transactions table
+    
+      SELECT Transaction_ID, COUNT(*) 
+      FROM `apexgcp.apex_dataset.transactions`
+      GROUP BY Transaction_ID
+      HAVING COUNT(*) > 1;
 
 #### **5. Data Transformation with dbt**
 - Staging SQL scripts: [stg_customers.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_customers.sql)
+                       [stg_products.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_products.sql)
+                       [stg_regions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_regions.sql)
+                       [stg_transactions.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/stg_transactions.sql)
+- Core_mart Script:    ![core_transaction_analysis.sql](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/core_transaction_analysis.sql)
 
 #### **6. Automating Pipelines with Cloud Composer (Airflow)**
 - DAG setup and execution in Airflow.
+    Python Script: [wk-airflow.py](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/wk-airflow.py)
 
 #### **7. Google Looker - GCP Transaction Analysis**
 - Dashboard visualization: [Transaction Analysis](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/GCP%20Transaction%20Analysis.png)
 
 #### **8. Power BI - GCP Transaction Analysis**
 - Dashboards analyzing **Gross Revenue, Net Revenue, Discounts, COGS, and Gross Profit**.
+    - Power BI Dashboard visualization: ![Gross Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Revenue.png)
+                                        ![Discount.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Discount.png)
+                                        ![Net Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Net%20Revenue.png)
+                                        ![COGS.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/COGS.png)
+                                        ![Gross Profit.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Profit.png)                                        
 
----
 ### **Conclusion**
 Apex Solutions' transition to **Google Cloud Platform (GCP)** marked a significant step toward achieving **scalable, secure, and data-driven operations**. By leveraging cloud-native tools and advanced analytics, the company successfully optimized its infrastructure, reduced costs, and enhanced real-time decision-making capabilities. This transformation underscores the importance of cloud adoption in driving business growth and innovation.
-
-
