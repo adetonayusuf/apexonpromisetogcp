@@ -96,6 +96,12 @@ Apex Solutions migrated to **Google Cloud Platform (GCP)** to address these chal
 - IAM roles, encryption, and audit mechanisms ensure robust data protection.
 
 ---
+
+Below is the data Architecture for this project
+
+![Data Architecture](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/GCP%20Architecture.png)
+
+---
 ### **Technology Stack**
 - **Cloud Platform**: Google Cloud Platform (BigQuery, Cloud Storage, Dataflow, AI Platform)
 - **Infrastructure as Code Tools**: Terraform
@@ -152,11 +158,11 @@ The source data for this project includes CSV and dump files. The data was initi
 
 #### **8. Power BI - GCP Transaction Analysis**
 - Dashboards analyzing **Gross Revenue, Net Revenue, Discounts, COGS, and Gross Profit**.
-    - Power BI Dashboard visualization: ![Gross Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Revenue.png)
-                                        ![Discount.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Discount.png)
-                                        ![Net Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Net%20Revenue.png)
-                                        ![COGS.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/COGS.png)
-                                        ![Gross Profit.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Profit.png)                                        
+    - Power BI Dashboard visualization: [Gross Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Revenue.png)
+                                        [Discount.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Discount.png)
+                                        [Net Revenue.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Net%20Revenue.png)
+                                        [COGS.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/COGS.png)
+                                        [Gross Profit.png](https://github.com/adetonayusuf/apexonpromisetogcp/blob/main/Gross%20Profit.png)                                        
 
 ### **Conclusion**
 Apex Solutions' transition to **Google Cloud Platform (GCP)** marked a significant step toward achieving **scalable, secure, and data-driven operations**. By leveraging cloud-native tools and advanced analytics, the company successfully optimized its infrastructure, reduced costs, and enhanced real-time decision-making capabilities. This transformation underscores the importance of cloud adoption in driving business growth and innovation.
