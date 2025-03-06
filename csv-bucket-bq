@@ -1,0 +1,77 @@
+from google.cloud import bigquery
+from google.cloud import storage
+from google.api_core.exceptions import GoogleAPIError
+
+# Set up the BigQuery client
+bq_client = bigquery.Client.from_service_account_json('credentials.json')
+
+# Set up Cloud Storage client
+storage_client = storage.Client.from_service_account_json('credentials.json')
+
+# Define your bucket and file details
+bucket_name = 'apex-solutions-bucket'
+
+# File details for CSVs
+file_name_1 = 'regions.csv'  # Region CSV file
+file_name_2 = 'products.csv'  # Product CSV file
+
+# BigQuery dataset and table details
+dataset_id = 'apex_dataset'
+table_id_1 = 'region_data_table'  # Table for Region Data
+table_id_2 = 'product_data_table'  # Table for Product Data
+
+# Set the source URI for the CSV files in Cloud Storage
+source_uri_1 = f'gs://{bucket_name}/{file_name_1}'
+source_uri_2 = f'gs://{bucket_name}/{file_name_2}'
+
+# Set the BigQuery table references
+dataset_ref = bq_client.dataset(dataset_id)
+table_ref_1 = dataset_ref.table(table_id_1)
+table_ref_2 = dataset_ref.table(table_id_2)
+
+# Define the schema for the Region Data table
+schema_1 = [
+    bigquery.SchemaField('Region_ID', 'INTEGER'),
+    bigquery.SchemaField('Country', 'STRING'),
+    bigquery.SchemaField('Region_Name', 'STRING'),
+]
+
+# Define the schema for the Product Data table
+schema_2 = [
+    bigquery.SchemaField('Product_ID', 'INTEGER'),
+    bigquery.SchemaField('Product_Name', 'STRING'),
+]
+
+# Set the configuration for loading data into Region Data table
+load_config_1 = bigquery.LoadJobConfig(
+    schema=schema_1,
+    source_format=bigquery.SourceFormat.CSV,
+    skip_leading_rows=1,  # Skip header row
+    autodetect=False,  # Use the defined schema
+)
+
+# Set the configuration for loading data into Product Data table
+load_config_2 = bigquery.LoadJobConfig(
+    schema=schema_2,
+    source_format=bigquery.SourceFormat.CSV,
+    skip_leading_rows=1,  # Skip header row
+    autodetect=False,  # Use the defined schema
+)
+
+try:
+    # Load the Region Data CSV file into BigQuery
+    load_job_1 = bq_client.load_table_from_uri(
+        source_uri_1, table_ref_1, job_config=load_config_1
+    )
+    load_job_1.result()  # Wait for the load job to complete
+    print(f"Data from {file_name_1} loaded into BigQuery table {table_id_1}.")
+
+    # Load the Product Data CSV file into BigQuery
+    load_job_2 = bq_client.load_table_from_uri(
+        source_uri_2, table_ref_2, job_config=load_config_2
+    )
+    load_job_2.result()  # Wait for the load job to complete
+    print(f"Data from {file_name_2} loaded into BigQuery table {table_id_2}.")
+    
+except GoogleAPIError as e:
+    print(f"Error loading data into BigQuery: {e}")

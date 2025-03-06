@@ -1,0 +1,18 @@
+WITH transactions AS (
+    SELECT 
+        t.Transaction_ID,
+        t.Customer_ID,
+        c.Name AS Customer_Name,
+        r.Region_Name,
+        p.Product_Name,
+        t.Transaction_Date,
+        t.Amount,
+        t.Discount_Offered,
+        t.Payment_Method,
+        t.Pricing_Model
+    FROM `apexgcp.apex_dataset.transactions_table` t
+    JOIN `apexgcp.apex_dataset.customer_data_table` c ON t.Customer_ID = c.Customer_ID
+    JOIN `apexgcp.apex_dataset.product_data_table` p ON t.Product_ID = p.Product_ID
+    JOIN `apexgcp.apex_dataset.region_data_table` r ON t.Region_ID = r.Region_ID
+)
+SELECT * FROM transactions

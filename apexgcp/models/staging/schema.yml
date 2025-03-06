@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    config:
+      schema: apex_dataset_staging  # Updated to the staging dataset
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('stg_customers')  # Reference must match the customer model name
+              field: customer_id
+
+  - name: stg_customers
+    config:
+      schema: apex_dataset_staging  # Updated to the staging dataset
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null

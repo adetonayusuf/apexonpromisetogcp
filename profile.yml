@@ -1,0 +1,12 @@
+apexgcp:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: apexgcp
+      dataset: "apex_dataset"
+      threads: 4
+      keyfile: credentials.json
+      timeout_seconds: 300
+      location: US
